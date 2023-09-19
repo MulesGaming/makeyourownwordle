@@ -30,19 +30,35 @@ function setVars(){
 
 // Words
 
-let word_list = []
+let wordList = new Set()
 
 const add_word_button = document.getElementById('add_word')
+const add_word_item = document.getElementById('add_word_item')
 const all_words_div = document.getElementById('wordList')
 
 add_word_button.addEventListener('click',createWordItem)
+add_word_item.addEventListener('click',addWordToList)
 
 function createWordItem(){
-  all_words_div.innerHTML += '<div class="word-item"><input type="text" id="user_wordle_input_word" placeholder="Word"><input type="text" id="user_wordle_input_word_desc" placeholder="Word description"><button id="add_word_item" onclick="addWordToList()">Add word to list</button></div>'
+  all_words_div.innerHTML += '<div class="word-item"><input type="text" class="user_wordle_input_word" placeholder="Word"><input type="text" class="user_wordle_input_word_desc" placeholder="Word description">'
 }
 
 function addWordToList(){
-  console.log('f')
+
+  for (let i = 0; i < document.getElementsByClassName('word-item').length; i++) {
+
+    const descElement = document.getElementsByClassName('user_wordle_input_word_desc')
+    const wordElement = document.getElementsByClassName('user_wordle_input_word')
+    const wordWarningDivElement = document.getElementById('wordWarning')
+
+    if (wordElement[i].value == '' || descElement[i].value == ''){
+      wordWarningDivElement.innerHTML = '<p class="error">Field missing!</p>'
+    }else{
+      wordWarningDivElement.innerHTML = ''
+      console.log('Words added!')
+      wordList.add({'word':wordElement[i].value,'desc':descElement[i].value})
+    }
+  }
 }
 
 // Download Function

@@ -5,6 +5,7 @@
     <link rel="icon" type="image/x-icon" href="https://minecraftwordle.fun/media/img/logo.png">
     <meta name="author" content="Mules Gaming">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
     <main id="info">
@@ -13,10 +14,15 @@
       <input type="text" id="user_wordle_input_author_name" placeholder="Creator Name">
       <input type="text" id="user_wordle_input_author_website" placeholder="Creator Website">
       <button id="send_info">Enter</button>
+      <div class="image-upload">
+        <h1>Site Logo</h1>
+        <input id="fileUpload" type="file" accept="image/*">
+      </div>
       <div class="words">
         <h1>Words</h1>
-        <div id="wordList"></div>
+        <div id="wordList"><div id="wordWarning"></div></div>
         <button id="add_word">Add word spot</button>
+        <button id="add_word_item">Add words</button></div>
       </div>
     </main>
   </body>
