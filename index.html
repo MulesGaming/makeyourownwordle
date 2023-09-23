@@ -8,22 +8,37 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
+    <section id="siteInfo">
+      <h1>Make A Wordle</h1>
+      <p class="site-desc">Welcome to Make A Wordle made by <a href="https://www.mulesgaming.com">Mules Gaming</a> and based of source code from the <a href="https://minecraftwordle.fun">Minecraft Wordle</a>. Fill out all the fields and click download to get a .zip file with site code.</p>
+    </section>
     <main id="info">
-      <input type="text" id="user_wordle_input_title" placeholder="Wordle Name">
-      <input type="text" id="user_wordle_input_desc" placeholder="Wordle description">
-      <input type="text" id="user_wordle_input_author_name" placeholder="Creator Name">
-      <input type="text" id="user_wordle_input_author_website" placeholder="Creator Website">
-      <button id="send_info">Enter</button>
+      <div class="main-items">
+        <h2 class="main-items-header">Info</h1>
+        <div id="inputs">
+          <input type="text" id="user_wordle_input_title" placeholder="Wordle Name">
+          <input type="text" id="user_wordle_input_desc" placeholder="Wordle description">
+          <input type="text" id="user_wordle_input_author_name" placeholder="Creator Name (you!)">
+          <input type="text" id="user_wordle_input_author_website" placeholder="Creator Website">
+        </div>
+        <button id="send_info">Enter</button>
+      </div>
       <div class="image-upload">
-        <h1>Site Logo</h1>
-        <input id="fileUpload" type="file" accept="image/*">
+        <h2>Site Logo</h1>
+        <label class="img-file-upload">
+          <input id="fileUpload" type="file" accept="image/*">
+          Upload image
+        </label>
+        <img id="imgPreview">
       </div>
       <div class="words">
-        <h1>Words</h1>
+        <h2>Words</h1>
         <div id="wordList"><div id="wordWarning"></div></div>
         <button id="add_word">Add word spot</button>
         <button id="add_word_item">Add words</button></div>
       </div>
+      <h2 class="download-header">Download Your Wordle</h1>
+      <button id="download" class="download">Download</button>
     </main>
   </body>
   <!-- Scripts -->

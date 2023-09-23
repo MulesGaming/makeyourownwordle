@@ -4,10 +4,10 @@ console.log('JS loaded');
 
 // Set vars
 
-let user_wordle_title;
-let user_wordle_author;
-let user_wordle_author_url;
-let user_wordle_desc;
+let user_wordle_title = 'Unamed Wordle';
+let user_wordle_author = 'Example';
+let user_wordle_author_url = location.href;
+let user_wordle_desc = 'This is a description';
 
 const submit_button = document.getElementById('send_info')
 
@@ -20,13 +20,64 @@ const user_wordle_input_author_website = document.getElementById('user_wordle_in
 
 function setVars(){
 
-  user_wordle_title = user_wordle_input_title.value
-  user_wordle_desc = user_wordle_input_desc.value
-  user_wordle_author = user_wordle_input_author_name.value
-  user_wordle_author_url = user_wordle_input_author_website.value
-  console.log(user_wordle_author)
-
+  // Title
+  if (user_wordle_input_title.value == ''){
+    user_wordle_input_title.style.borderColor = 'red';
+  }else{
+    user_wordle_title = user_wordle_input_title.value;
+    user_wordle_input_title.style.borderColor = 'black';
+  }
+  // Desc
+  if (user_wordle_input_desc.value == ''){
+    user_wordle_input_desc.style.borderColor = 'red';
+  }else{
+    user_wordle_desc = user_wordle_input_desc.value;
+    user_wordle_input_desc.style.borderColor = 'black';
+  }
+  // Author
+  if (user_wordle_input_author_name.value == ''){
+    user_wordle_input_author_name.style.borderColor = 'red';
+  }else{
+    user_wordle_author = user_wordle_input_author_name.value;
+    user_wordle_input_author_name.style.borderColor = 'black';
+  }
+  // Author URL
+  if (user_wordle_input_author_website.value == ''){
+    user_wordle_input_author_website.style.borderColor = 'red';
+  }else{
+    user_wordle_author_url = user_wordle_input_author_website.value;
+    user_wordle_input_author_website.style.borderColor = 'black';
+  }
 }
+
+// Logo
+
+const fileSelector = document.getElementById('fileUpload')
+const imgPreview = document.getElementById('imgPreview')
+
+function previewFile() {
+  const preview = imgPreview;
+  const file = fileSelector.files[0];
+  const reader = new FileReader();
+
+  preview.alt = file.name;
+  preview.title = file.name;
+
+  reader.addEventListener(
+    "load",
+    () => {
+      // convert image file to base64 string
+      preview.src = reader.result;
+    },
+    false,
+  );
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+fileSelector.addEventListener('change',previewFile)
 
 // Words
 
@@ -52,7 +103,17 @@ function addWordToList(){
     const wordWarningDivElement = document.getElementById('wordWarning')
 
     if (wordElement[i].value == '' || descElement[i].value == ''){
-      wordWarningDivElement.innerHTML = '<p class="error">Field missing!</p>'
+      wordWarningDivElement.innerHTML = '<p class="error">Field(s) missing!</p>'
+      if (wordElement[i].value == ''){
+        wordElement[i].style.borderColor = "red";
+      }else{
+        wordElement[i].style.borderColor = "black";
+      }
+      if (descElement[i].value == ''){
+        descElement[i].style.borderColor = "red";
+      }else{
+        descElement[i].style.borderColor = "black";
+      }
     }else{
       wordWarningDivElement.innerHTML = ''
       console.log('Words added!')
