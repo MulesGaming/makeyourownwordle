@@ -14,18 +14,18 @@ button{
   margin-top: 5px;
   color: white;
   background-color: #6200ee;
-  box-shadow: 5px;
+  box-shadow: 1px 1px 6px;
 }
 
 button:hover{
   background-color: #5200c4;
-  box-shadow: 8px;
+  box-shadow: 1px 1px 6px;
   cursor: pointer;
 }
 
 button:active{
   background-color: #4901ae;
-  box-shadow: 10px;
+  box-shadow: 1px 1px 6px;
 }
 
 input{
@@ -53,7 +53,7 @@ input[type="file"] {
   margin-bottom: 5px;
   color: white;
   background-color: #6200ee;
-  box-shadow: 5px;
+  box-shadow: 1px 1px 6px;
 }
 
 .img-file-upload:hover{
@@ -64,7 +64,7 @@ input[type="file"] {
 
 .img-file-upload:active{
   background-color: #4901ae;
-  box-shadow: 10px;
+  box-shadow: 1px 1px 6px;
 }
 
 
@@ -78,5 +78,17 @@ input[type="file"] {
   margin-left: 30%;
   margin-right: 25%;
   margin-top: 15px;
+}
+
+/* Notification */
+
+.notification{
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 1px 1px 6px;
+  padding: 10px 15px 10px 15px;
 }
 
